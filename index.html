@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <link href="bootstrap/3.0.0/css/bootstrap.min.css"
+     rel="stylesheet">
+ </head>
+ <body>
+  <div class="container">
+   <div class="header">
+    <h3 class="text-muted">How To Get The IP Address Of The User</h3>
+   </div>
+   <hr/>
+   <div>
+    You IP address is: <strong>{{user_ip}}</strong>
+  <div class="header">
+    <h3 class="text-muted">Code to retrieve the IP</h3>
+   </div>
+   <hr/>  
+<pre>
+from flask import Flask, render_template, request
+# Initialize the Flask application
+app = Flask(__name__)
+# Default route, print user's IP
+@app.route('/')
+def index():
+ ip = request.remote_addr
+ return render_template('index.html', user_ip=ip)
+</pre>
+   </div>
+  </div>
+ </body>
+</html>
